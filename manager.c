@@ -140,8 +140,28 @@ void saveData(Product *p, int count){
 	printf("\n");
 }
 
-int loadData(Product *p, int count){
-
+int loadData(Product *p){
+	int count = 0, i = 0;
+       	FILE *fp;
+	if(fp = fopen("product.txt", "rt")){
+		for(; i < 100; i++){
+			fscanf(fp, "%[^\n]s", p[i].product_name);
+			if(feof(fp))
+				break;
+			fscanf(fp, "%[^\n]s", p[i].product_info);
+			fscanf(fp, "%d", &p[i].product_weight);
+			fscanf(fp, "%[^\n]s", p[i].product_origin);
+			fscanf(fp, "%d", &p[i].price);
+			fscanf(fp, "%d", &p[i].deli_method);
+		}
+	}
+	else{
+		printf("NO EXIST FILE!\n");
+		return i;
+	}
+	fclose(fp);
+	printf("=> Loading success!\n");
+	return i;
 }
 
 void search_Name(Product *p, int count){
