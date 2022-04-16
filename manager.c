@@ -125,7 +125,19 @@ int continueCheck(){
 }
 
 void saveData(Product *p, int count){
-
+	FILE *fp;
+	fp = fopen("product.txt", "wt");
+	for(int i = 0; i < count; i++){
+		if(p[i].price == -1)
+			continue;
+		fprintf(fp,"%s %s %d %s %d %d\n",p[i].product_name,
+			       	p[i].product_info,p[i].product_weight,
+			       	p[i].product_origin, p[i].price, 
+				p[i].deli_method);
+	}
+	fclose(fp);
+	printf("=> 저장되었습니다! ");
+	printf("\n");
 }
 
 int loadData(Product *p, int count){
