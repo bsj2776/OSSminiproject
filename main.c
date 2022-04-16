@@ -11,7 +11,7 @@ int main(void){
 	if(check == 0)
 		exit(0);
 #endif
-	Product pList[20];
+	Product pList[100];
 	int index = 0;
 	int count = 0;
 	int menu;

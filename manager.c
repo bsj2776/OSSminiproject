@@ -181,11 +181,27 @@ void search_Name(Product *p, int count){
 	}
 	if(scnt == 0)
 		printf("=> 검색된 데이터 없음!");
-	printf("\n");	
+	printf("\n");
 }
 
 void search_LowPrice(Product *p, int count){
-
+	int scnt = 0;
+	int targetPrice;
+	printf("기준 가격은? ");
+	scanf("%d", &targetPrice);
+	printf("***********************************\n");
+	for(int i = 0; i < count; i++){
+		if(p[i].price == -1)
+			continue;
+		if(p[i].price <= targetPrice){
+			printf("%d", i+1);
+			readProduct(p[i]);
+			scnt++;
+		}
+	}
+	if(scnt == 0)
+		printf("=> 검색된 데이터 없음!");
+	printf("\n");
 }
 
 void search_Info(Product *p, int count){
