@@ -123,3 +123,23 @@ int continueCheck(){
 	else
 		return 0;
 }
+
+void saveData(Product *p, int count){
+
+}
+
+int loadData(Product *p, int count){
+
+}
+
+void search_Name(Product *p, int count){
+
+}
+
+void search_LowPrice(Product *p, int count){
+
+}
+
+void search_Info(Product *p, int count){
+
+}
