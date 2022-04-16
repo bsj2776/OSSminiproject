@@ -9,7 +9,6 @@ printf("\n***상품확인***\n");
 	printf("2.추가\n");
 	printf("3.수정\n");
 	printf("4.삭제\n");
-	printf("4.삭제\n");
 	printf("5.저장\n");
 	printf("6.이름검색\n");
 	printf("7.가격검색\n");
@@ -24,17 +23,20 @@ int addProduct(Product *p){
 	getchar();
 	printf("상품이름은? \n");
 	fgets(p->product_name, 50, stdin);
-	
+	p->product_name[strlen(p->product_name)-1] = '\0';
+
 	printf("상품정보는? \n");
 	fgets(p->product_info, 100, stdin);
-
+	p->product_info[strlen(p->product_info)-1] = '\0';
+	
 	printf("상품중량은? \n");
 	scanf("%d", &p->product_weight);
 	
 	getchar();
 	printf("상품원산지는? \n");
 	fgets(p->product_origin, 20, stdin);
-
+	p->product_origin[strlen(p->product_origin)-1] = '\0';
+	
 	printf("상품가격은? \n");
 	scanf("%d", &p->price);
 
@@ -48,9 +50,11 @@ int updateProduct(Product *p){
 	getchar();
 	printf("상품이름은? \n");
 	fgets(p->product_name, 50, stdin);
+	p->product_name[strlen(p->product_name)-1] = '\0';
 	
 	printf("상품정보는? \n");
 	fgets(p->product_info, 100, stdin);
+	p->product_info[strlen(p->product_info)-1] = '\0';
 
 	printf("상품중량은? \n");
 	scanf("%d", &p->product_weight);
@@ -58,6 +62,7 @@ int updateProduct(Product *p){
 	getchar();
 	printf("상품원산지는? \n");
 	fgets(p->product_origin, 20, stdin);
+	p->product_origin[strlen(p->product_origin)-1] = '\0';
 
 	printf("상품가격은? \n");
 	scanf("%d", &p->price);
@@ -90,7 +95,8 @@ void readProduct(Product p){
 }
 
 void listProduct(Product *p, int index){
-	printf("***********************************\n");
+	printf("상품이름 상품정보 무게 원산지 가격 배송방법");
+	printf("************************************************\n");
 	for(int i = 0; i < index; i++){
 		if(p[i].price == -1){
 			continue;
@@ -169,7 +175,8 @@ void search_Name(Product *p, int count){
 	char search[20];
 	printf("검색할 이름? ");
 	scanf("%s", search);
-	printf("***********************************\n");
+	printf("상품이름 상품정보 무게 원산지 가격 배송방법");
+	printf("************************************************\n");
 	for(int i = 0; i < count; i++){
 		if(p[i].price == -1)
 			continue;
@@ -189,7 +196,8 @@ void search_LowPrice(Product *p, int count){
 	int targetPrice;
 	printf("기준 가격은? ");
 	scanf("%d", &targetPrice);
-	printf("***********************************\n");
+	printf("상품이름 상품정보 무게 원산지 가격 배송방법");
+	printf("**********************************************\n");
 	for(int i = 0; i < count; i++){
 		if(p[i].price == -1)
 			continue;
@@ -209,7 +217,8 @@ void search_Info(Product *p, int count){
 	char search[20];
 	printf("검색할 단어? ");
 	scanf("%s", search);
-	printf("************************************\n");
+	printf("상품이름 상품정보 무게 원산지 가격 배송방법");
+	printf("***********************************************\n");
 	for(int i = 0; i < count; i++){
 		if(p[i].price == -1)
 			continue;
