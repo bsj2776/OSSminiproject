@@ -15,6 +15,8 @@ int main(void){
 	int index = 0;
 	int count = 0;
 	int menu;
+	count = loadData(pLIst);
+	index = count;
 
 	while(1){
 		menu = selectMenu();
@@ -54,6 +56,18 @@ int main(void){
 				deleteProduct(&pList[no-1]);
 				count--;
 			}
+		}
+		else if(menu == 5){
+			saveData(pList, index);
+		}
+		else if(menu == 6){
+			search_Name(pList, index);
+		}
+		else if(menu == 7){
+			search_LowPrice(pList, index);
+		}
+		else if(menu == 8){
+			search_Info(pList, index);
 		}
 	}
 
