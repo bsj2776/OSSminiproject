@@ -189,5 +189,22 @@ void search_LowPrice(Product *p, int count){
 }
 
 void search_Info(Product *p, int count){
-
+	int scnt = 0;
+	char search[20];
+	printf("검색할 단어? ");
+	scanf("%s", search);
+	prinf("************************************\n");
+	for(int i = 0; i < count; i++){
+		if(p[i].price == -1)
+			continue;
+		if(strstr(p[i].product_info, search)){
+			printf("%d", i+1);
+			readProduct(p[i]);
+			scnt++;
+		}
+	}
+	if(scnt == 0)
+		printf("=> 검색된 데이터 없음!");
+	printf("\n");
 }
+
