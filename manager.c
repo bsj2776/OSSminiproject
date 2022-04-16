@@ -165,7 +165,23 @@ int loadData(Product *p){
 }
 
 void search_Name(Product *p, int count){
-
+	int scnt = 0; //검색된 데이터 개수 확인
+	char search[20];
+	printf("검색할 이름? ");
+	scanf("%s", search);
+	printf("***********************************\n");
+	for(int i = 0; i < count; i++){
+		if(p[i].price == -1)
+			continue;
+		if(strstr(p[i].product_name, search)){
+			printf("%d", i+1);
+			readProduct(p[i]);
+			scnt++;
+		}
+	}
+	if(scnt == 0)
+		printf("=> 검색된 데이터 없음!");
+	printf("\n");	
 }
 
 void search_LowPrice(Product *p, int count){

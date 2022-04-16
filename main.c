@@ -15,7 +15,7 @@ int main(void){
 	int index = 0;
 	int count = 0;
 	int menu;
-	count = loadData(pLIst);
+	count = loadData(pList);
 	index = count;
 
 	while(1){
