@@ -95,7 +95,7 @@ void readProduct(Product p){
 }
 
 void listProduct(Product *p, int index){
-	printf("상품이름 상품정보 무게 원산지 가격 배송방법");
+	printf("상품이름 상품정보 무게 원산지 가격 배송방법\n");
 	printf("************************************************\n");
 	for(int i = 0; i < index; i++){
 		if(p[i].price == -1){
@@ -152,13 +152,23 @@ int loadData(Product *p){
 	if((fp = fopen("product.txt", "rt"))){
 		for(; i < 100; i++){
 			fscanf(fp, "%[^\n]s", p[i].product_name);
+			p->product_name[strlen(p->product_name)-1] = '\0';
+			
 			if(feof(fp))
 				break;
+		
 			fscanf(fp, "%[^\n]s", p[i].product_info);
+			p->product_name[strlen(p->product_name)-1] = '\0';
+			
 			fscanf(fp, "%d", &p[i].product_weight);
+			
 			fscanf(fp, "%[^\n]s", p[i].product_origin);
+			p->product_name[strlen(p->product_name)-1] = '\0';
+
 			fscanf(fp, "%d", &p[i].price);
+		
 			fscanf(fp, "%d", &p[i].deli_method);
+			printf("\n");
 		}
 	}
 	else{
@@ -175,7 +185,7 @@ void search_Name(Product *p, int count){
 	char search[20];
 	printf("검색할 이름? ");
 	scanf("%s", search);
-	printf("상품이름 상품정보 무게 원산지 가격 배송방법");
+	printf("상품이름 상품정보 무게 원산지 가격 배송방법\n");
 	printf("************************************************\n");
 	for(int i = 0; i < count; i++){
 		if(p[i].price == -1)
@@ -196,7 +206,7 @@ void search_LowPrice(Product *p, int count){
 	int targetPrice;
 	printf("기준 가격은? ");
 	scanf("%d", &targetPrice);
-	printf("상품이름 상품정보 무게 원산지 가격 배송방법");
+	printf("상품이름 상품정보 무게 원산지 가격 배송방법\n");
 	printf("**********************************************\n");
 	for(int i = 0; i < count; i++){
 		if(p[i].price == -1)
@@ -217,7 +227,7 @@ void search_Info(Product *p, int count){
 	char search[20];
 	printf("검색할 단어? ");
 	scanf("%s", search);
-	printf("상품이름 상품정보 무게 원산지 가격 배송방법");
+	printf("상품이름 상품정보 무게 원산지 가격 배송방법\n");
 	printf("***********************************************\n");
 	for(int i = 0; i < count; i++){
 		if(p[i].price == -1)
