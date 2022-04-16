@@ -141,9 +141,9 @@ void saveData(Product *p, int count){
 }
 
 int loadData(Product *p){
-	int count = 0, i = 0;
+	int i = 0;
        	FILE *fp;
-	if(fp = fopen("product.txt", "rt")){
+	if((fp = fopen("product.txt", "rt"))){
 		for(; i < 100; i++){
 			fscanf(fp, "%[^\n]s", p[i].product_name);
 			if(feof(fp))
@@ -209,7 +209,7 @@ void search_Info(Product *p, int count){
 	char search[20];
 	printf("검색할 단어? ");
 	scanf("%s", search);
-	prinf("************************************\n");
+	printf("************************************\n");
 	for(int i = 0; i < count; i++){
 		if(p[i].price == -1)
 			continue;
